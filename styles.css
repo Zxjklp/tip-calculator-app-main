@@ -8,20 +8,87 @@
   --color-white: hsl(0, 0%, 100%);
 }
 
-* {
-  margin: 0;
-  padding: 0;
+/* CSS Reset */
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
 body {
-  font-family: 'Space Mono', monospace;
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
   background-color: var(--color-light-grayish-cyan);
-  min-height: 100vh;
+  font-family: "Space Mono", monospace;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
+  min-height: 100vh;
 }
 
 .sr-only {
@@ -36,18 +103,22 @@ body {
 }
 
 .calculator {
+  max-width: 57.5rem; /* 920px */
   width: 100%;
-  max-width: 920px;
-  text-align: center;
 }
 
 .calculator__logo {
   margin-bottom: 2.5rem;
 }
 
+.calculator__logo img {
+  margin-inline: auto;
+}
+
 .calculator__container {
   background-color: var(--color-white);
-  border-radius: 1.5rem;
+  font-weight: 700;
+  border-radius: 24px;
   padding: 2rem;
 }
 
@@ -62,17 +133,15 @@ body {
 }
 
 .input-group__label {
-  color: var(--color-dark-grayish-cyan);
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
   display: block;
+  color: var(--color-dark-grayish-cyan);
+  font-size: 1rem;
   text-align: left;
+  margin-bottom: 0.5rem;
 }
 
 .input-group__field {
   position: relative;
-  background-color: var(--color-very-light-grayish-cyan);
-  border-radius: 0.3rem;
 }
 
 .input-group__field img {
@@ -84,13 +153,14 @@ body {
 
 .input-group__field input {
   width: 100%;
-  padding: 0.5rem 1rem;
-  text-align: right;
-  border: none;
-  background: transparent;
+  background-color: var(--color-very-light-grayish-cyan);
+  color: var(--color-dark-cyan);
   font-family: inherit;
   font-size: 1.5rem;
-  color: var(--color-dark-cyan);
+  text-align: right;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .tip-grid {
@@ -102,12 +172,12 @@ body {
 .tip-grid__btn {
   background-color: var(--color-dark-cyan);
   color: var(--color-white);
-  border: none;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  border-radius: 0.3rem;
-  cursor: pointer;
   font-family: inherit;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .tip-grid__btn:hover,
@@ -118,18 +188,19 @@ body {
 
 .tip-grid__custom {
   background-color: var(--color-very-light-grayish-cyan);
-  border: none;
-  border-radius: 0.3rem;
-  text-align: right;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  font-family: inherit;
   color: var(--color-dark-cyan);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
 }
 
 .calculator__results {
   background-color: var(--color-dark-cyan);
-  border-radius: 0.875rem;
+  border-radius: 14px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -144,38 +215,33 @@ body {
 
 .result-group__label {
   color: var(--color-white);
-  text-align: left;
 }
 
 .result-group__label span {
   color: var(--color-grayish-cyan);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
 }
 
 .result-group__amount {
   color: var(--color-primary);
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .calculator__reset {
-  margin-top: auto;
   background-color: var(--color-primary);
-  border: none;
-  padding: 0.75rem;
-  border-radius: 0.3rem;
   color: var(--color-dark-cyan);
   font-family: inherit;
   font-size: 1.25rem;
-  cursor: pointer;
   text-transform: uppercase;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.3rem;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.calculator__reset:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.calculator__reset:not(:disabled):hover {
+.calculator__reset:hover {
   background-color: var(--color-light-grayish-cyan);
 }
 
@@ -184,8 +250,4 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
 }
