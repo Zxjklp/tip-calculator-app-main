@@ -6,6 +6,7 @@
   --color-light-grayish-cyan: hsl(185, 41%, 84%);
   --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
   --color-white: hsl(0, 0%, 100%);
+  --color-error: hsl(0, 100%, 50%);
 }
 
 /* CSS Reset */
@@ -103,7 +104,7 @@ body {
 }
 
 .calculator {
-  max-width: 57.5rem; /* 920px */
+  max-inline-size: 57.5rem;
   width: 100%;
 }
 
@@ -133,7 +134,9 @@ body {
 }
 
 .input-group__label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: var(--color-dark-grayish-cyan);
   font-size: 1rem;
   text-align: left;
@@ -161,6 +164,30 @@ body {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-group__field input:hover,
+.input-group__field input:focus,
+.tip-grid__custom:hover,
+.tip-grid__custom:focus {
+  outline: none;
+  border: 2px solid var(--color-primary);
+}
+
+.input-group__field input.invalid {
+  border: 2px solid var(--color-error);
+}
+
+.input-group__field input.valid {
+  border: 2px solid var(--color-primary);
+}
+
+.input-group__error-message {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
 }
 
 .tip-grid {
@@ -188,7 +215,7 @@ body {
 
 .tip-grid__custom {
   background-color: var(--color-very-light-grayish-cyan);
-  color: var(--color-dark-cyan);
+  color: var (--color-dark-cyan);
   font-family: inherit;
   font-size: 1.5rem;
   font-weight: 700;
@@ -196,6 +223,7 @@ body {
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .calculator__results {
