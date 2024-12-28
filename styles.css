@@ -162,7 +162,7 @@ body {
   font-size: 1.5rem;
   text-align: right;
   padding: 0.5rem 1rem;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -186,8 +186,15 @@ body {
 .input-group__error-message {
   color: var(--color-error);
   font-size: 0.875rem;
-  margin-top: 0.5rem;
-  display: none;
+  height: 0.875rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.2s ease, opacity 0.2s ease;
+}
+
+.input-group__error-message.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .tip-grid {
@@ -215,15 +222,19 @@ body {
 
 .tip-grid__custom {
   background-color: var(--color-very-light-grayish-cyan);
-  color: var (--color-dark-cyan);
+  color: var(--color-dark-cyan);
   font-family: inherit;
   font-size: 1.5rem;
   font-weight: 700;
-  text-align: center;
+  text-align: right;
   padding: 0.5rem;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.tip-grid__custom::placeholder {
+  text-align: center;
 }
 
 .calculator__results {
@@ -278,4 +289,9 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
 }
