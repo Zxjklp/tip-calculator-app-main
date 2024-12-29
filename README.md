@@ -9,7 +9,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 ### Links
 
-- [Solution URL](https://www.frontendmentor.io/solutions/time-tracking-dashboard-solution-using-css-grid-4jOyGarTs5)
+- [Solution URL](https://www.frontendmentor.io/solutions/tip-calculator-app-width--vNZi4Uy9N)
 - [Live Site](https://zxjklp.github.io/tip-calculator-app-main/)
 
 ### Built With
