@@ -233,6 +233,10 @@ body {
   text-align: center;
 }
 
+.tip-grid__custom:focus::placeholder {
+  opacity: 0;
+}
+
 .calculator__results {
   background-color: var(--color-dark-cyan);
   border-radius: 14px;
@@ -289,4 +293,56 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   appearance: textfield;
   -moz-appearance: textfield;
+}
+
+/* Mobile Styles */
+@media (max-width: 850px) {
+  .calculator__container {
+    padding: 1.5rem;
+  }
+
+  .calculator__form {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group__label {
+    font-size: 0.875rem;
+  }
+
+  .input-group__field input {
+    font-size: 1.25rem;
+    padding: 0.5rem;
+  }
+
+  .tip-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tip-grid__btn,
+  .tip-grid__custom {
+    font-size: 1.25rem;
+  }
+
+  .calculator__results {
+    padding: 1.5rem;
+  }
+
+  .result-group__label {
+    font-size: 0.875rem;
+  }
+
+  .result-group__amount {
+    font-size: 2.5rem;
+  }
+
+  .calculator__reset {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 }
