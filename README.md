@@ -9,7 +9,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 ### Links
 
-- [Solution URL](https://www.frontendmentor.io/solutions/tip-calculator-app-width--vNZi4Uy9N)
+- [Solution](https://www.frontendmentor.io/solutions/tip-calculator-app-width--vNZi4Uy9N)
 - [Live Site](https://zxjklp.github.io/tip-calculator-app-main/)
 
 ### Built With
